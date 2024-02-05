@@ -6,10 +6,10 @@ export class Video {
     id!: number;
 
     @Column()
-    videoName!: string;
+    name!: string;
 
     @Column()
-    videoUrl!: string;
+    url!: string;
 
     @Column()
     watchListId!: number;

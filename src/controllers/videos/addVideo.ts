@@ -5,12 +5,12 @@ import { Request, Response } from "express";
 
 export async function addNewVideo(req: Request, res: Response) {
     const {
-        videoName,
-        videoUrl,
+        name,
+        url,
         watchListId
     } = req.body;
 
-    if (!videoName || !videoUrl || !watchListId) {
+    if (!name || !url || !watchListId) {
         return res.status(400).json({ message: "videoName, videoUrl and watchListId are required" });
     }
 
@@ -22,7 +22,7 @@ export async function addNewVideo(req: Request, res: Response) {
 
     const videoRepository = DatabaseConfig.getRepository(Video);
 
-    const newVideo = videoRepository.create({ videoName, videoUrl, watchListId });
+    const newVideo = videoRepository.create({ name, url, watchListId });
 
     videoRepository.save(newVideo);
 
