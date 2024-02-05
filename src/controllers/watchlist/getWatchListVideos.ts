@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 
 import { DatabaseConfig } from "../../dataSource";
 import { WatchList } from "../../entity/WatchList";
+import { Video } from "../../entity/Video";
 
-export async function getWatchList(req: Request, res: Response) {
+export async function getWatchListVideos(req: Request, res: Response) {
 
     const { name } = req.body;
 
@@ -12,11 +13,16 @@ export async function getWatchList(req: Request, res: Response) {
     }
 
     const watchListRepository = DatabaseConfig.getRepository(WatchList);
-    const watchList = await watchListRepository.find({ where: { name: name } })
+    const watchList = await watchListRepository.findOne({ where: { name: name } })
 
     if (!watchList) {
         return res.status(404).json({ message: "watchlist not found" });
     }
 
-    return res.status(200).json(watchList);
+    const videoRepository = DatabaseConfig.getRepository(Video);
+    const videos = await videoRepository.find({ where: { watchListId: watchList.id } });
+
+    console.log(videos);
+
+    return res.status(200).json(videos);
 }

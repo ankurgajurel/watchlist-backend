@@ -2,11 +2,11 @@ import { Router } from "express";
 
 import { deleteWatchList } from "../controllers/watchlist/deleteWatchList";
 import { createWatchList } from "../controllers/watchlist/createWatchList";
-import { getWatchList } from "../controllers/watchlist/getWatchList";
+import { getWatchListVideos } from "../controllers/watchlist/getWatchListVideos";
 
 const watchListRouter: Router = Router();
 
-watchListRouter.get("/", getWatchList)
+watchListRouter.get("/", getWatchListVideos)
 watchListRouter.post("/", createWatchList)
 watchListRouter.delete("/", deleteWatchList)
 
