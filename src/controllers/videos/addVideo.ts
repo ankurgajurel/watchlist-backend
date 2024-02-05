@@ -24,7 +24,7 @@ export async function addNewVideo(req: Request, res: Response) {
 
     const newVideo = videoRepository.create({ name, url, watchListId });
 
-    videoRepository.save(newVideo);
+    await videoRepository.save(newVideo);
 
     return res.status(201).json({ message: "video added" });
 }

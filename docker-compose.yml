@@ -10,18 +10,18 @@ services:
     depends_on:
       - db
     environment:
-      - DB_USER=ankurgajurel
-      - DB_PASS=password
-      - DB_NAME=a5ittask
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
       - DB_HOST=db
-      - DB_PORT=5432
-      - DB_TYPE=postgres
+      - DB_PORT=${DB_PORT}
+      - DB_TYPE=${DB_TYPE}
 
   db:
     image: postgres:latest
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: a5ittask
-      POSTGRES_USER: ankurgajurel
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}

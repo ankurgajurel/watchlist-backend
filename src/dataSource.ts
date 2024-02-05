@@ -11,4 +11,5 @@ export const DatabaseConfig = new DataSource({
     password: `${process.env.DB_PASS}`,
     database: `${process.env.DB_NAME}`,
     entities: [WatchList, Video],
+    synchronize: true
 })
