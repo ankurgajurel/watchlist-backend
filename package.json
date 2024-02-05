@@ -1,0 +1,30 @@
+{
+  "name": "watchlist-app",
+  "version": "1.0.0",
+  "description": "Watchlist Application",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "body-parser": "^1.19.1",
+    "dotenv": "^16.4.1",
+    "express": "^4.17.2",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.20"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "@types/node": "^14.14.33",
+    "nodemon": "^2.0.6",
+    "ts-node": "^10.3.0"
+  }
+}
