@@ -1,25 +1,27 @@
 version: "3"
-services:
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASS}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
 
-  watchlist-app:
-    build: .
-    env_file: .env
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
     depends_on:
-      - postgres
+      - db
+    environment:
+      - DB_USER=ankurgajurel
+      - DB_PASS=password
+      - DB_NAME=a5ittask
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_TYPE=postgres
 
-volumes:
-  postgres-data:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: a5ittask
+      POSTGRES_USER: ankurgajurel
+      POSTGRES_PASSWORD: password
