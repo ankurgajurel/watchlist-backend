@@ -91,7 +91,7 @@ Request Body:
 ```json
 {
   "name": "videoName",
-  "url": "videoUrl"
+  "url": "videoUrl",
   "watchlistId": "watchListId",
 }
 ```
@@ -106,3 +106,5 @@ Request Body:
   "watchlistId": "watchListId",
 }
 ```
+
+6. `GET /api/v1/watchlist/all` - Get all Watchlists with id and name
