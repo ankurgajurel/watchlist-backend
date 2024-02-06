@@ -54,7 +54,7 @@ pnpm start
 
 #### Endpoints
 
-1. `POST /api/v1/watchlists` - Create a new watchlist
+1. `POST /api/v1/watchlist` - Create a new watchlist
 
 Request Body:
 
@@ -64,7 +64,7 @@ Request Body:
 }
 ```
 
-2.  `GET /api/v1/watchlists` - Get all videos in a watchlist
+2.  `GET /api/v1/watchlist` - Get all videos in a watchlist
 
 Request Body:
 
@@ -74,7 +74,7 @@ Request Body:
 }
 ```
 
-3. `DELETE /api/v1/watchlists` - Delete a watchlist
+3. `DELETE /api/v1/watchlist` - Delete a watchlist
 
 Request Body:
 

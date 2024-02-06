@@ -22,7 +22,5 @@ export async function getWatchListVideos(req: Request, res: Response) {
     const videoRepository = DatabaseConfig.getRepository(Video);
     const videos = await videoRepository.find({ where: { watchListId: watchList.id } });
 
-    console.log(videos);
-
     return res.status(200).json(videos);
 }
